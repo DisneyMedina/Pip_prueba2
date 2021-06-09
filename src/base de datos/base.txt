@@ -1,0 +1,35 @@
+create database BD_CL2;
+use BD_CL2;
+create table tb_sucursal
+( cod_sucursal INT primary key auto_increment,
+ nom_sucursal VARCHAR(25)
+);
+create table tb_supervisor
+(
+cod_supervisor INT primary key auto_increment,
+nom_supervisor VARCHAR(25),
+ape_supervisor VARCHAR(25),
+dni_supervisor INT,
+num_hijos INT,
+sueldo DOUBLE,
+cod_sucursal INT
+);
+alter table tb_supervisor add constraint FK01 foreign key(cod_sucursal) references tb_sucursal(cod_sucursal);
+
+
+
+INSERT INTO `bd_cl2`.`tb_sucursal` (`cod_sucursal`, `nom_sucursal`) VALUES ('1', 'Lima');
+INSERT INTO `bd_cl2`.`tb_sucursal` (`cod_sucursal`, `nom_sucursal`) VALUES ('2', 'Trujillo');
+INSERT INTO `bd_cl2`.`tb_sucursal` (`cod_sucursal`, `nom_sucursal`) VALUES ('3', 'Arequipa');
+INSERT INTO `bd_cl2`.`tb_sucursal` (`cod_sucursal`, `nom_sucursal`) VALUES ('4', 'Cuzco');
+
+INSERT INTO `bd_cl2`.`tb_supervisor` (`cod_supervisor`, `nom_supervisor`, `ape_supervisor`, `dni_supervisor`, `num_hijos`, `sueldo`, `cod_sucursal`) VALUES ('1', 'Juan', 'perez', '74125963', '1', '1200.0', '1');
+INSERT INTO `bd_cl2`.`tb_supervisor` (`cod_supervisor`, `nom_supervisor`, `ape_supervisor`, `dni_supervisor`, `num_hijos`, `sueldo`, `cod_sucursal`) VALUES ('2', 'disney', 'Medina', '14785266', '0', '1500.4', '1');
+INSERT INTO `bd_cl2`.`tb_supervisor` (`cod_supervisor`, `nom_supervisor`, `ape_supervisor`, `dni_supervisor`, `num_hijos`, `sueldo`, `cod_sucursal`) VALUES ('3', 'Jaime', 'Laoz', '78965412', '2', '1300', '2');
+INSERT INTO `bd_cl2`.`tb_supervisor` (`cod_supervisor`, `nom_supervisor`, `ape_supervisor`, `dni_supervisor`, `num_hijos`, `sueldo`, `cod_sucursal`) VALUES ('4', 'Pedro', 'perez', '12478536', '2', '1400', '2');
+INSERT INTO `bd_cl2`.`tb_supervisor` (`cod_supervisor`, `nom_supervisor`, `ape_supervisor`, `dni_supervisor`, `num_hijos`, `sueldo`, `cod_sucursal`) VALUES ('5', 'Jaume', 'gabaldoni', '741239685', '1', '1400', '3');
+INSERT INTO `bd_cl2`.`tb_supervisor` (`nom_supervisor`, `ape_supervisor`, `dni_supervisor`, `num_hijos`, `sueldo`, `cod_sucursal`) VALUES ('Carlos', 'SantaEngracia', '89456123', '3', '1700', '3');
+
+
+
+
